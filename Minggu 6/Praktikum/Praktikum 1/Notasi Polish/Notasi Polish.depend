@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1680701612 source:d:\cool yeah\asd\minggu 6\praktikum\praktikum 1\notasi polish\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+

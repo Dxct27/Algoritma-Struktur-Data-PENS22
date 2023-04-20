@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1677858986 source:d:\cool yeah\asd\minggu 2\praktikum\praktikum 2\menu\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

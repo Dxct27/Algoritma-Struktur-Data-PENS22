@@ -1,0 +1,10 @@
+Tugas
+
+1. Tuliskan algoritma UMUM operasi DELETE
+2. Untuk masing-masing delete (AWAL, AKHIR & TERTENTU) lakukan sbb :
+a. Gambarkan diagramnya step by step
+b. Tuliskan pseudo code di samping masing2 diagram pd poin a
+c. Tuliskan fungsi lengkapnya
+
+Perhatikan :
+--> ada kemungkinan lbh dari satu kondisi (node tinggal satu, atau masih banyak)

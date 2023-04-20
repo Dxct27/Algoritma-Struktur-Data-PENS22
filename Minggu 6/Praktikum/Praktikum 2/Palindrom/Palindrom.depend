@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1680630109 source:d:\cool yeah\asd\minggu 6\praktikum\praktikum 2\palindrom\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

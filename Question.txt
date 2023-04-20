@@ -1,0 +1,10 @@
+Week 1
+PPT 1.1 Page 15&16
+kenapa di ppt hal 15 di simpan di variabel dd dkk
+kemudian di assign ke pointer to struct
+sedangkan pada page 16 langsung ke alamat pointer to struct(?)
+
+sama operator pointer
+
+lets say its int
+scanf("%d", &aday->d); apakah == scanf("%d", (*aday).d);

@@ -1,0 +1,10 @@
+Tugas SINGLE LINKED LIST operasi INSERT
+
+1. Tuliskan algoritma UMUM operasi INSERT
+2. Untuk masing-masing insert (AWAL, AKHIR, AFTER & BEFORE) lakukan sbb :
+a. Gambarkan diagramnya step by step
+b. Tuliskan pseudo code di samping masing2 diagram pada poin a
+c. Tuliskan fungsi lengkapnya
+
+Perhatikan :
+--> ada kemungkinan lebih dari satu kondisi untuk sebuah operasi insert (SLL masih kosong ataukah SLL sudah ada isinya)
