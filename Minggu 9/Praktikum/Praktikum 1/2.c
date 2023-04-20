@@ -6,7 +6,8 @@ void angkaTampil(int);
 int main()
 {
     int n;
-    prinf("Program untuk menampilkan angka dari n ke 0 menggunakan rekursi\n");
+
+    printf("Program untuk menampilkan angaka dari 0 ke n menggunakan rekursi\n");
     printf("Masukkan n : ");
     scanf("%d", &n);
 
@@ -18,10 +19,8 @@ int main()
 void angkaTampil(int n)
 {
     if(n < 0){
-        return ;
+        return;
     }
-
     printf("%d ", n);
     angkaTampil(n-1);
-    
 }
