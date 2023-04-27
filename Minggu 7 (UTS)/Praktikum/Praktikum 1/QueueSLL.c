@@ -121,12 +121,12 @@ void enqueue(struct QueueSLL *q)
 itemType dequeue(struct QueueSLL *q)
 {
     itemType dataDequeue;
+    Node *temp = q->front;
     if(isEmpty(q)){
         printf("Queue kosong\n");
     }
     else{
         dataDequeue = q->front->data;
-        Node *temp = q->front;
         q->front = q->front->next;
         free(temp);
         temp = NULL;
