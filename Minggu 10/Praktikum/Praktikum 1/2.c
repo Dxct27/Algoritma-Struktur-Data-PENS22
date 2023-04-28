@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #define MAX 10
 
-void selection(int A[], int);
+void insertion(int A[], int);
 void tukar(int *, int*);
 void tampil(int A[]);
 //int c, m;
@@ -18,37 +18,27 @@ int main()
     printf("SELECTION Sort\n");
     printf("Sebelum sorting : ");
     tampil(A);
-    selection(A, MAX);
+    insertion(A, MAX);
     printf("Setelah sorting : ");
     tampil(A);
     return 0;
 }
 
-void selection(int A[], int n)
+void insertion(int A[], int n)
 {
-    int i, j, min;
+    int i, j, key;
 
-    for (i = 0; i < n-1; i++)
+    for (i = 1; i < n; i++)
     {
-        min = i;
-        for(j = i + 1; j < n; j++)
+        key = A[i];
+        j = i - 1;
+        while (j >= 0 && A[j] > key)
         {
-            if (A[j] < A[min])
-            {
-                min = j;
-            }
+            A[j+1] = A[j];
+            j--;
         }
-        tukar(&A[min], &A[i]);
+        A[j+1] = key;
     }
-}
-
-void tukar(int *a, int *b)
-{
-    int temp;
-
-    temp = *a;
-    *a = *b;
-    *b = temp;
 }
 
 void tampil(int A[])
