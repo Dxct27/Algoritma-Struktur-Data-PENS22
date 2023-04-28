@@ -3,31 +3,37 @@
 
 void fibonacci_it(int);
 int fibonacci_re(int);
-void menu();
+void menu(int);
 
 int main()
 {
+    int n;
+    
+    printf("Program menampilkan deret fibonacci\n");
+
+    printf("Masukkan jumlah deret fibonacci : ");
+    scanf("%d", &n);
+    
     while (1)
     {
-        menu();
+        menu(n);
     }
     return 0;
 }
 
-void menu()
+void menu(int n)
 {
-    int jwb, n, i;
+    int jwb, i;
     
-    printf("Program menampilkan deret fibonacci\n");
-    printf("Masukkan jumlah deret fibonacci : ");
-    scanf("%d", &n);
     printf("\nMENU program fibonacci\n");
     printf("1. Iterasi\n");
     printf("2. Rekursi\n");
     printf("3. Keluar\n");
-    printf("Masukkan pilihan Anda :");
+    
+    printf("Masukkan pilihan Anda : ");
     scanf("%d", &jwb);
 
+    //TODO : add time check
     switch (jwb)
     {
     case 1:
@@ -55,10 +61,10 @@ void fibonacci_it(int n)
     int i, t1 = 0, t2 = 1;
     int tn = t1 + t2;
 
-    printf("Deret fibonacci : %d, %d, ", t1, t2);
+    printf("Deret fibonacci : %d %d ", t1, t2);
     for (i = 3; i <= n; i++)
     {
-        printf("%d, ", tn);
+        printf("%d ", tn);
         t1 = t2;
         t2 = tn;
         tn = t1 + t2;
@@ -71,5 +77,5 @@ int fibonacci_re(int n)
     if(n <= 1)
         return n;
     else
-        return (fibonacci(n-1) + fibonacci(n-2));
+        return (fibonacci_re(n-1) + fibonacci_re(n-2));
 }
