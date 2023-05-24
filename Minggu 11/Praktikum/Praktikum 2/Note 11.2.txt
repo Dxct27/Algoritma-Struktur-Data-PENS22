@@ -1,0 +1,6 @@
+Note 11.2
+1. shell struct
+2. bubble struct
+3. asc / desc
+4. sort by -> no/nama/nilai
+5. menu

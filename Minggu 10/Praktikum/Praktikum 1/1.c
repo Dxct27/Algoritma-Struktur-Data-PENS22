@@ -5,7 +5,7 @@
 void selection(int A[], int);
 void tukar(int *, int*);
 void tampil(int A[]);
-//int c, m;
+int c, m, s;
 //TODO : add how many time checking and moving the elements;
 
 int main()
@@ -21,6 +21,7 @@ int main()
     selection(A, MAX);
     printf("Setelah sorting : ");
     tampil(A);
+    printf("C : %d\nM : %d\nS : %d\n", c, m, s);
     return 0;
 }
 

@@ -1,0 +1,6 @@
+Note 11.1
+1. implementasi 2 metode dgn data int
+2. mode asc/desc
+3. generate random
+4. ada durasi wkt
+5. jadikan 1 menu : 4 metode, data int, generate random, durasi wkt
