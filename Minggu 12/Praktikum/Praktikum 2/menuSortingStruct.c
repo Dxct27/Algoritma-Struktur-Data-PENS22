@@ -29,16 +29,16 @@ int mode, tipe;
 int main()
 {
 
-    int n = 5, pilihan_menu = 0;
+    int n, pilihan_menu = 0;
 
-    //printf("Jumlah siswa yang akan dimasukkan : ");
-    //scanf("%d", &n);
+    printf("Jumlah siswa yang akan dimasukkan : ");
+    scanf("%d", &n);
 
-    //mhs mahasiswa[n];
+    mhs mahasiswa[n];
 
-    mhs mahasiswa[5] = {5, "Seulgi", 'B', 3, "Irene", 'A', 10, "Yerim", 'C', 2, "Joy", 'C', 7, "Wendy", 'A'};
+    //mhs mahasiswa[5] = {5, "Seulgi", 'B', 3, "Irene", 'A', 10, "Yerim", 'C', 2, "Joy", 'C', 7, "Wendy", 'A'};
 
-    //isiData(mahasiswa, n);
+    isiData(mahasiswa, n);
 
     while (pilihan_menu != 7)
     {

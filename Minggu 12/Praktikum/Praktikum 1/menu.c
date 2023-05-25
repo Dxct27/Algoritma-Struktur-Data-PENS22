@@ -1,21 +1,21 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include<string.h>
-#include<math.h>
-#include<time.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <time.h>
 #define MAX 100000
 
-void selection(int [], int);
-void insertion(int [], int);
-void bubble(int [], int);
-void shell(int [], int);
-void mergeSortRekursif(int [], int , int);
-void merge(int [], int , int, int);
-void quickSort(int [], int, int);
-int partition(int [], int, int);
-void tampil(int [], int);
+void selection(int[], int);
+void insertion(int[], int);
+void bubble(int[], int);
+void shell(int[], int);
+void mergeSortRekursif(int[], int, int);
+void merge(int[], int, int, int);
+void quickSort(int[], int, int);
+int partition(int[], int, int);
+void tampil(int[], int);
 void tukar(int *, int *);
-void generate(int [], int);
+void generate(int[], int);
 void waktu(clock_t, clock_t, int);
 void menu();
 void mode_urut();
@@ -54,6 +54,12 @@ void menu()
 
         mode_urut();
 
+        //printf("\nBefore\n");
+        //tampil(backup, n);
+
+        srand(time(NULL));
+        start = clock();
+        
         switch (jwb)
         {
         case 1:
@@ -69,17 +75,10 @@ void menu()
             shell(backup, n);
             break;
         case 5:
-            start = clock();
             mergeSortRekursif(backup, 0, n);
-            end = clock();
-            waktu(start, end, n);
             break;
         case 6:
-            srand(time(NULL));
-            start = clock();
-            quickSort(backup, 0, n-1);
-            end = clock();
-            waktu(start, end, n);
+            quickSort(backup, 0, n - 1);
             break;
         case 7:
             printf("\nPROGRAM DIHENTIKAN\n");
@@ -89,6 +88,12 @@ void menu()
             printf("\nPilihan Anda Invalid\n");
             break;
         }
+        
+        //printf("After\n");
+        //tampil(backup, n);
+        
+        end = clock();
+        waktu(start, end, n);
     } while (jwb != 7);
 }
 
@@ -104,40 +109,32 @@ void mode_urut()
 void insertion(int x[], int n)
 {
     int i, j, key;
-
-    clock_t start, end;
-
-    start = clock();
     i = 1;
-    while(i < n)
+    while (i < n)
     {
         key = x[i];
         j = i - 1;
         while (j >= 0 && (mode == 1 ? x[j] > key : x[j] < key))
         {
-            x[j+1] = x[j];
+            x[j + 1] = x[j];
             j--;
         }
-        x[j+1] = key;
+        x[j + 1] = key;
         i++;
     }
-    end = clock();
-    waktu(start, end, n);
 }
 
 void selection(int x[], int n)
 {
     int i, j, min;
-    clock_t start, end;
 
-    start = clock();
-    while(i < n)
+    while (i < n)
     {
         min = i;
         j = i + 1;
-        while(j < n)
+        while (j < n)
         {
-            if(mode == 1 ? x[j] < x[min] : x[j] > x[min])
+            if (mode == 1 ? x[j] < x[min] : x[j] > x[min])
             {
                 min = j;
             }
@@ -146,43 +143,35 @@ void selection(int x[], int n)
         tukar(&x[i], &x[min]);
         i++;
     }
-    end = clock();
-    waktu(start, end, n);
 }
 
 void bubble(int x[], int n)
 {
     int i, j, did_swap;
-    clock_t start, end;
     did_swap = 1;
 
-    start = clock();
-    for(i = 0; i < n-1; i++)
+    for (i = 0; i < n - 1; i++)
     {
         if (did_swap)
         {
             did_swap = 0;
-            for(j = 0; j < (n - i - 1); j++)
+            for (j = 0; j < (n - i - 1); j++)
             {
-                if (mode == 1 ? x[j] > x[j+1] : x[j] < x[j+1])
+                if (mode == 1 ? x[j] > x[j + 1] : x[j] < x[j + 1])
                 {
-                    tukar(&x[j], &x[j+1]);
+                    tukar(&x[j], &x[j + 1]);
                     did_swap = 1;
                 }
             }
-
         }
     }
-    end = clock();
-    waktu(start, end, n);
 }
 
 void shell(int x[], int n)
 {
     int jarak = n / 2;
     int i, did_swap;
-    clock_t start, end;
-    start = clock();
+
     while (jarak > 0)
     {
         did_swap = 1;
@@ -191,7 +180,7 @@ void shell(int x[], int n)
             did_swap = 0;
             for (i = 0; i < n - jarak; i++)
             {
-                if (mode == 1 ? x[i] > x[i+jarak] : x[i] < x[i+jarak])
+                if (mode == 1 ? x[i] > x[i + jarak] : x[i] < x[i + jarak])
                 {
                     tukar(&x[i], &x[i + jarak]);
                     did_swap = 1;
@@ -200,36 +189,34 @@ void shell(int x[], int n)
         }
         jarak = jarak / 2;
     }
-    end = clock();
-    waktu(start, end, n);
 }
 
 void mergeSortRekursif(int data[], int l, int r)
 {
     int med;
-    if(l < r)
+    if (l < r)
     {
-        med = (l+r) / 2;
+        med = (l + r) / 2;
         mergeSortRekursif(data, l, med);
-        mergeSortRekursif(data, med+1, r);
+        mergeSortRekursif(data, med + 1, r);
         merge(data, l, med, r);
     }
 }
 
-void merge(int data[], int l , int m, int r)
+void merge(int data[], int l, int m, int r)
 {
     int i, j, ki1, ki2, ka1, ka2;
-    int hasil [MAX];
+    int hasil[MAX];
 
     ki1 = l;
     ka1 = m;
-    ki2 = m+1;
+    ki2 = m + 1;
     ka2 = r;
     i = l;
 
     while (ki1 <= ka1 && ki2 <= ka2)
     {
-        //if(data[ki1] <= data[ki2])
+        // if(data[ki1] <= data[ki2])
         if ((mode == 1) ? data[ki1] <= data[ki2] : data[ki1] >= data[ki2])
         {
             hasil[i] = data[ki1];
@@ -270,29 +257,40 @@ void quickSort(int A[], int p, int r)
     if (p < r)
     {
         q = partition(A, p, r);
-        quickSort(A, p, q-1);
-        quickSort(A, q+1, r);
+        quickSort(A, p, q);
+        quickSort(A, q + 1, r);
     }
-
 }
 
-int partition(int A[], int p , int r)
+int partition(int A[], int p, int r)
 {
-    int i, j, x;
-    x = A[r];
-    i = p - 1;
+    int i, j, pivot;
+    pivot = A[p];
+    i = p;
+    j = r;
 
-    for (j = p; j < r; j++)
+    while (i <= j)
     {
-        //if (A[j] <= x)
-        if ((mode == 1) ? A[j] <= x : A[j] >= x)
+        while ( (mode == 1) ? A[j] > pivot : A[j] < pivot )
+        {
+            j--;
+        }
+
+        while ((mode == 1) ? A[i] < pivot : A[i] > pivot )
         {
             i++;
-            tukar(&A[i], &A[j]);
         }
+
+        if (i < j)
+        {
+            tukar(&A[i], &A[j]);
+            j--;
+            i++;
+        }
+        else
+            return j;
     }
-    tukar(&A[i+1], &A[r]);
-    return (i+1);
+    return j;
 }
 
 void tukar(int *a, int *b)
@@ -318,9 +316,9 @@ void generate(int x[], int n)
 {
     int i;
     srand(time(NULL));
-    for(i = 0; i<n; i++)
+    for (i = 0; i < n; i++)
     {
-        x[i] = rand()/1000;
+        x[i] = rand() / 1000;
     }
 }
 
